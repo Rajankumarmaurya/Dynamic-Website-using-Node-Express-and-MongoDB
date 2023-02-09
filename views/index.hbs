@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic website</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+    {{>navbar data=details}}
+    {{>slider slides=slides}}
+
+  {{!-- BANNER SECTION1 --}}
+  <section class="banner_section py-5 background1">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Start Learning the new Technology</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere suscipit magni praesentium sint provident maiores quae, ut ab. Veritatis consequatur voluptates, voluptate impedit quisquam pariatur!</p>
+                <button class="btn btn-outline-primary">Start Learning</button>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+
+
+    {{!-- //SERVICES SECTION --}}
+
+    <section id="services_section" class="py-4">
+        <div class="container">
+            <h1 class="text-center text-secondary">Our Services</h1>
+            <div class="row mt-4">
+                {{!-- first services column --}}
+                {{#each services}}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="conatiner text-center">
+
+                                <i class="{{this.icon}} service_icon"></i>
+                            </div>
+
+                            <h3 class="card-title">{{this.title}}</h3>
+                            <p>{{this.description}}</p>
+                            <a href="{{this.link}}">Check</a>
+                            <a href="{{this.linkText}}" class="ml-3">Support</a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+
+            </div>
+        </div>
+    </section>
+
+{{!-- BANNER SECTION2 --}}
+
+<section class="banner2_section py-5">
+    <div class="container">
+        <div class="row">
+            {{#each banners}}
+            <div class="col-md-6 text-center pt-5">
+                {{!-- left side --}}
+                <h3>{{this.title}}</h3>
+            <p>
+               {{this.subTitle}}
+            </p>
+            <button class="btn btn-primary">CLick here</button>
+            </div>
+            <div class="col-md-6 text-center" >
+                {{!-- right side --}}
+                <img  class="img-fluid mt-5" src="{{this.imageIcon}}" alt="" style="height: 350px;"/>
+
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+</section>
+
+{{!-- BANNER 3 SECTION --}}
+
+
+<section class="banner2_section py-6">
+    <div class="container">
+        <div class="row">
+              <div class="col-md-6 text-center">
+                {{!-- right side --}}
+                <img src="/static/images/s30.png" alt="" style="height: 350px;"/>
+
+            </div>
+            <div class="col-md-6 text-center pt-5">
+                {{!-- left side --}}
+                <h3>We work for the people not for the money</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, nihil numquam. Vitae quae maiores non repellat odit, eligendi dolorum dicta incidunt labore neque eius voluptatem. Placeat fuga autem architecto laborum!
+            </p>
+            <button class="btn btn-primary">CLick here</button>
+            </div>
+          
+        </div>
+    </div>
+
+</section>
+
+
+
+    {{!-- CONTACT US SECTION --}}
+
+    <section id="contact_us_section" class="py-5 background1 mt-3">
+        <div class="container">
+            <h3 class="text-center text-secondary">Contact Us</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="/process-contact-form" method="post">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Your Email address</label>
+                            <input name="email" type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contactNumberField" class="form-label">Your Contact Number</label>
+                            <input name="phone" type="number" class="form-control" id="exampleInputPassword1">
+                        </div>
+
+                        <div class="form-floating my-2">
+                            <textarea name="query" style="height: 250px;" class="form-control" placeholder="Enter your query here"
+                                id="queryField"></textarea>
+                            <label for="queryField">Your query</label>
+                        </div>
+
+
+                        <div class="container text-center">
+
+                            <button type="submit" class="btn btn-dark">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- ABOUT SECTION --}}
+    <section class="about_section">
+     <div class="container">
+           <div class="row py-5">
+            <div class="col-md-12 text-center">
+               <h3>About the side</h3> 
+               <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut quae sit dolor veniam, fugit voluptatum, dignissimos recusandae itaque velit, repudiandae hic pariatur blanditiis optio maxime iusto aperiam ipsa odio obcaecati corrupti? Saepe veniam non dolore aperiam impedit aspernatur architecto ipsa ullam sunt, eveniet laudantium dolorem sint sapiente sit minus perferendis.</p>
+               <button class="btn btn-success">Contact US</button>
+            </div>
+        </div>
+     </div>
+    </section>
+    {{!-- FOOTER SECTION --}}
+    <div class="footer background1 text-center py-5">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                  @2022 Copyright: <span>Info the solution</span> 
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
